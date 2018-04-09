@@ -2,9 +2,7 @@ package identification;
 
 import org.opencv.core.Mat;
 
-import database.packaging.BallGridArray;
 import database.packaging.PackagingType;
-import database.packaging.QuadFlatPackage;
 
 public class IdentificationPackagingType {
 
@@ -14,10 +12,10 @@ public class IdentificationPackagingType {
 		//TODO revoir archi
 		int nbCircle = circles.cols(); 
 		if (nbCircle > 10) {
-			return new BallGridArray();
+			return PackagingType.BGA;
 		}
 		else {
-			return new QuadFlatPackage();
+			return PackagingType.QFP;
 		}
 		
 	}

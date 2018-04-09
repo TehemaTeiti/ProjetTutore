@@ -1,6 +1,8 @@
 package main;
 
+import database.packaging.BallGridArray;
 import database.packaging.PackagingType;
+import database.packaging.QuadFlatPackage;
 import identification.HoughCircles;
 import identification.IdentificationPackagingType;
 import utils.TiffToPng;
@@ -16,8 +18,19 @@ public class Main {
 	            name = convert.changeName(name);
 	        }
 			
+			// reconnaissance du type de boîtier
 			PackagingType type = IdentificationPackagingType.computeType(name);
-			System.out.println("["+name+"] Type détecté : " + type);
+			switch (type) {
+			case BGA:
+				BallGridArray bga = new BallGridArray();
+				// TODO
+				break;
+			case QFP:
+				QuadFlatPackage qfp = new QuadFlatPackage();
+				// TODO
+				break;
+			}
+			System.out.println("["+name+"] Type détecté : " + type.toString());
 			
 		}
 		System.out.println("OK");
