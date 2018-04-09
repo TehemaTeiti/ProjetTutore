@@ -6,5 +6,8 @@
 	<classpathentry kind="lib" path="/home/teiti/eclipse-workspace/Projet Tut/lib/jai/jai_codec.jar"/>
 	<classpathentry kind="lib" path="/home/teiti/eclipse-workspace/Projet Tut/lib/jai/jai_core.jar"/>
 	<classpathentry kind="lib" path="/home/teiti/eclipse-workspace/Projet Tut/lib/jai/mlibwrapper_jai.jar"/>
+	<classpathentry kind="lib" path="/home/msmini/eclipse-workspace/ProjetTutore/lib/jai/mlibwrapper_jai.jar"/>
+	<classpathentry kind="lib" path="/home/msmini/eclipse-workspace/ProjetTutore/lib/jai/jai_core.jar"/>
+	<classpathentry kind="lib" path="/home/msmini/eclipse-workspace/ProjetTutore/lib/jai/jai_codec.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

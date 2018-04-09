@@ -18,7 +18,13 @@ import database.packaging.QuadFlatPackage;
  */
 public class HoughCircles {
 	
-	public Mat run(String filename) {
+	/*      distInv = gray.rows/distInv: Minimum distance between detected centers.
+			uppTresholdCanny : Upper threshold for the internal Canny edge detector.
+			centerTreshold : Threshold for center detection.
+			minRadius : Minimum radius to be detected. If unknown, put zero as default.
+			maxRadius : Maximum radius to be detected. If unknown, put zero as default.
+			*/
+	public Mat run(String filename, int distInv, double uppTresholdCanny, double centerTreshold, int minRadius, int maxRadius) {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME); // TODO voir si à utiliser dans fonction appelante
     	//TODO travailler sur une partie de l'image
         // Load an image
@@ -33,8 +39,8 @@ public class HoughCircles {
         Imgproc.medianBlur(gray, gray, 5);
         Mat circles = new Mat();
         Imgproc.HoughCircles(gray, circles, Imgproc.HOUGH_GRADIENT, 1.0,
-                (double)gray.rows()/200, // change this value to detect circles with different distances to each other
-                50.0, 26.0, 1, 30); // change the last two parameters
+                (double)gray.rows()/distInv, // change this value to detect circles with different distances to each other
+                uppTresholdCanny, centerTreshold, minRadius, maxRadius); // change the last two parameters
                 // (min_radius & max_radius) to detect larger circles
         for (int x = 0; x < circles.cols(); x++) {
             double[] c = circles.get(0, x);
