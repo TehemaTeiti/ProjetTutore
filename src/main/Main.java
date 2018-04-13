@@ -3,6 +3,7 @@ package main;
 import database.packaging.BallGridArray;
 import database.packaging.PackagingType;
 import database.packaging.QuadFlatPackage;
+import identification.BGABallsIdentification;
 import identification.HoughCircles;
 import identification.IdentificationPackagingType;
 import utils.TiffToPng;
@@ -24,6 +25,7 @@ public class Main {
 			case BGA:
 				BallGridArray bga = new BallGridArray();
 				// TODO
+				BGABallsIdentification getBalls = new BGABallsIdentification(bga, name);
 				break;
 			case QFP:
 				QuadFlatPackage qfp = new QuadFlatPackage();
@@ -31,7 +33,7 @@ public class Main {
 				break;
 			}
 			System.out.println("["+name+"] Type détecté : " + type.toString());
-			
+						
 		}
 		System.out.println("OK");
 		System.exit(0);
