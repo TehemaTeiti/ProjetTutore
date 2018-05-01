@@ -62,7 +62,7 @@ public class BGABallsIdentification {
 		// format coord
 		balls = formatCoord(balls,rows,cols);
 		// check false negative
-		//ArrayList<Double[]> coordFalseNegative = checkFalseNegative(balls, rows, cols);
+		checkFalseNegative(balls, rows, cols, radius);
 		// add in bga
 		bga.setBalls(balls);
 		
@@ -82,6 +82,76 @@ public class BGABallsIdentification {
 		
 	}
 	
+	public ArrayList<Ball> checkFalseNegative(ArrayList<Ball> balls, double[] rows, double[] cols, double radius){
+		ArrayList<Ball> res = new ArrayList<>();
+		double diff ;
+		double d ;
+		int indexX = -1;
+		int indexY = -1;
+		int grid[][] = new int[cols.length][rows.length];
+		for(Ball b : balls) {
+			diff = Double.MAX_VALUE;
+			for(int i = 0 ; i < rows.length ; i++) {
+				d = Math.abs(b.getY()-rows[i]);
+				if(d < diff) {
+					diff = d ;
+					indexY = i ;
+				}
+			}
+			diff = Double.MAX_VALUE;
+			for(int i = 0 ; i < cols.length ; i++) {
+				d = Math.abs(b.getX()-cols[i]);
+				if(d < diff) {
+					diff = d ;
+					indexX = i ;
+				}
+			}
+			grid[indexX][indexY] = 1 ;
+		}
+		ArrayList<Integer[]> coordMissing = new ArrayList<>();
+		Integer coord[] = new Integer[2];
+		//Count missing balls (full grid)
+		for(int i = 0 ; i < rows.length ; i++) {
+			for(int j = 0 ; j < cols.length ; j++) {
+				if(grid[j][i] == 0) {
+					coord[0] = j ;
+					coord[1] = i ;
+					coordMissing.add(coord);
+				}
+			}
+		}
+		System.out.println("Nb of missing balls" + coordMissing.size());
+		if (coordMissing.size() > 1) {
+			Integer symX[] = new Integer[2] ;
+			Integer symY[] = new Integer[2] ;
+			Integer symO[] = new Integer[2] ;
+			Boolean symOK ;
+			// Look for symetry 
+			for(Integer i[] : coordMissing) {
+				symOK = false ;
+				symX[0] = i[0] ;
+				symX[1] = rows.length - i[1] ;
+				symY[0] = cols.length - i[0] ;
+				symY[1] = i[1] ;
+				symO[0] = symY[0] ;
+				symO[1] = symX[0] ;
+				for(Integer j[] : coordMissing) {
+					if(j == symX || j == symY || j == symO)
+						symOK = true ;
+				}
+				if(symOK) {
+					Ball b = new Ball(cols[i[0]], rows[i[1]], radius);
+					balls.add(b);	
+				}
+			}			
+		}
+		else if (coordMissing.size() == 1) {
+			coord = coordMissing.get(0);
+			Ball b = new Ball(cols[coord[0]], rows[coord[1]], radius);
+			balls.add(b);
+		}
+		return balls;
+	}
 	public ArrayList<Ball> formatCoord(ArrayList<Ball> balls, double[] rows, double[] cols){
 		ArrayList<Ball> res = new ArrayList<>();
 		Ball b ;

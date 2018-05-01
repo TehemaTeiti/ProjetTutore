@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/opencv"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/openCV"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/home/msmini/eclipse-workspace/ProjetTutore/lib/jai/mlibwrapper_jai.jar"/>
-	<classpathentry kind="lib" path="/home/msmini/eclipse-workspace/ProjetTutore/lib/jai/jai_core.jar"/>
-	<classpathentry kind="lib" path="/home/msmini/eclipse-workspace/ProjetTutore/lib/jai/jai_codec.jar"/>
+	<classpathentry kind="lib" path="lib/jai/jai_codec.jar"/>
+	<classpathentry kind="lib" path="lib/jai/jai_core.jar"/>
+	<classpathentry kind="lib" path="lib/jai/mlibwrapper_jai.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
