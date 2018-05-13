@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="lib/jai/jai_codec.jar"/>
 	<classpathentry kind="lib" path="lib/jai/jai_core.jar"/>
 	<classpathentry kind="lib" path="lib/jai/mlibwrapper_jai.jar"/>
+	<classpathentry kind="lib" path="/home/mehdi/eclipse-workspace/ProjetTutore/lib/opencv-341.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -6,7 +6,8 @@ import database.packaging.QuadFlatPackage;
 import identification.BGABallsIdentification;
 import identification.HoughCircles;
 import identification.IdentificationPackagingType;
-import utils.TiffToPng;
+import utils.*;
+import identification.*;
 
 public class Main {
 	
@@ -26,6 +27,8 @@ public class Main {
 				BallGridArray bga = new BallGridArray();
 				// TODO
 				BGABallsIdentification getBalls = new BGABallsIdentification(bga, name);
+				RemoveNoise rn = new RemoveNoise();
+				rn.removeNoise(name);
 				break;
 			case QFP:
 				QuadFlatPackage qfp = new QuadFlatPackage();
