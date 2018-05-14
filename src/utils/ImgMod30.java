@@ -68,7 +68,7 @@ realOut[yWave][xWave] +=
  (inputData[ySpace][xSpace]*cos(2*PI*((1.0*
  xWave*xSpace/width)+(1.0*yWave*ySpace/height))))
  /sqrt(width*height);
-System.out.println("xWave = " + xWave + " yWave " + yWave + " xSpace " + xSpace + " ySpace " + ySpace);
+//System.out.println("xWave = " + xWave + " yWave " + yWave + " xSpace " + xSpace + " ySpace " + ySpace);
 imagOut[yWave][xWave ] -=
  (inputData[ySpace][xSpace]*sin(2*PI*((1.0*xWave*
   xSpace/width) + (1.0*yWave*ySpace/height))))
@@ -80,8 +80,8 @@ amplitudeOut[yWave][xWave] =
   imagOut[yWave][xWave] * imagOut[yWave][xWave]);
           }//end xSpace loop
         }//end ySpace loop
-        System.out.println("xWave = " + xWave + " yWave " + yWave);
       }//end xWave loop
+      System.out.println("arg");
     }//end yWave loop
   }//end xform2D method
   //-------------------------------------------//

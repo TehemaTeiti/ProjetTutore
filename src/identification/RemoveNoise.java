@@ -13,14 +13,14 @@ public class RemoveNoise {
 	    toFFT = new ImageToArray(filename);
 	    double[][] spatialData = toFFT.toDoubleArray();
 	    //Create the array of test data.
-	    int rows = spatialData[0].length;
-	    int cols = spatialData.length;
+	    int rows = spatialData.length;
+	    int cols = spatialData[0].length;
 	    //Get a test surface in the space domain.
 	         
 	    //Display the spatial data.  Don't display
 	    // the axes.
 	    System.out.println("Display the spatial data");
-	    new ImgMod29(spatialData,3,false,1);
+	    new ImgMod29(spatialData,1,false,1);
 	    //Perform the forward transform from the
 	    // space domain into the wave-number domain.
 	    // First prepare some array objects to

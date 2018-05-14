@@ -181,7 +181,6 @@ public class ImgMod29 extends Frame{
     dataWidth = dataIn[0].length;
     boolean logPlot = false;
     int displayType = display;
-    
     //Plot types 0, 1, and 2 with no log
     // conversion for display parameter
     // value  = 0, 1, or 2. This is the default

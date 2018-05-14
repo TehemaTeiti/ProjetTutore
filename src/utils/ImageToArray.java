@@ -17,11 +17,11 @@ public class ImageToArray {
 	public double[][] toDoubleArray(){
         Mat gray = new Mat();
         Imgproc.cvtColor(src, gray, Imgproc.COLOR_BGR2GRAY);
-        double array[][] = new double[gray.cols()][gray.rows()];
+        double array[][] = new double[gray.rows()][gray.cols()];
         System.out.println("cols " + gray.cols() + " rows " + gray.rows());
         for(int i = 0 ; i < gray.cols() ; i++) {
         	for( int j = 0 ; j < gray.rows() ; j++) {
-        		array[i][j] = gray.get(j, i)[0];
+        		array[j][i] = gray.get(j, i)[0];
         	}
         }
         return array;

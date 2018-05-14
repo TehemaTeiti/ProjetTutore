@@ -249,10 +249,11 @@ public class BGABallsIdentification {
 					System.out.println("circle " + 228 + " diff " + diffs.get(228*2) + " " + diffs.get(228*2+1));
 			}
 		}
-		System.out.println("circle " + 228 + " diff " + diffs.get(228*2) + " " + diffs.get(228*2+1));
+		/*System.out.println("circle " + 228 + " diff " + diffs.get(228*2) + " " + diffs.get(228*2+1));
 		System.out.println("Test rows " + Arrays.toString(rows) + "\ncols " + Arrays.toString(cols) );
 		System.out.println("Test2  circle 228" + Arrays.toString(mat.get(0, 228)));
 		System.out.println("After first check (col/row) nb Balls " + (mat.cols() - indexFalse.size()) + "\n nb false balls " + indexFalse.size() + "\nfalse balls " + indexFalse);
+		*/
 		double dMin;
 		for(ArrayList<Integer> l : indexConflict) {
 			dMin = Double.MAX_VALUE;
@@ -277,9 +278,10 @@ public class BGABallsIdentification {
 			}
 			System.out.println(l);
 		}
-		System.out.println("circle " + 228 + " diff " + diffs.get(228*2) + " " + diffs.get(228*2+1));
+		/*System.out.println("circle " + 228 + " diff " + diffs.get(228*2) + " " + diffs.get(228*2+1));
 		System.out.println("Test circle 261 " + Arrays.toString(mat.get(0, 261)) + "circle 228 " + Arrays.toString(mat.get(0, 228)));
 		System.out.println("After second check (dist between circles) nb Balls " + (mat.cols() - indexFalse.size()) + "\n nb false balls " + indexFalse.size() + "\nfalse balls " + indexFalse);
+		*/
 		return indexFalse ;
 	}
 	/* TODO
