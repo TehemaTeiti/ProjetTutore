@@ -12,7 +12,7 @@ import identification.*;
 public class Main {
 	
 	public static void main(String[] args) {
-		String[] names = {"FPGA2_20mic 3.png"};
+		String[] names = {"FPGA_20mic 3.png"};
 		for (String name : names) {
 			
 			if(name.contains(".tif")) {

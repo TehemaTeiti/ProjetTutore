@@ -163,6 +163,11 @@ Tested using J2SE 5.0 and WinXP
 ************************************************/
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class ImgMod29 extends Frame{
   int dataWidth;
@@ -257,6 +262,16 @@ public class ImgMod29 extends Frame{
       surface = new CanvasType2surface();
       scale = new CanvasType2scale();
     }//end if-else on display type
+
+    BufferedImage im = new BufferedImage(dataWidth,dataHeight, BufferedImage.TYPE_3BYTE_BGR);
+    Graphics g = im.getGraphics();
+    surface.paint(g);
+    File outputfile = new File("test.png");
+	try {
+		ImageIO.write(im, "png", outputfile);
+	} catch(IOException e) {
+		e.printStackTrace();
+	}
 
     //Add the plotted surface to center of the
     // Frame

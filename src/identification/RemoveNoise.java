@@ -32,8 +32,9 @@ public class RemoveNoise {
 	    double[][] amplitudeSpect = //Amplitude
 	                          new double[rows][cols];
 	    System.out.println("Test FFT");
+        HighGui.waitKey();
 	    //Now perform the transform
-	    ImgMod30.xform2D(spatialData,realSpect,
+	    /*ImgMod30.xform2D(spatialData,realSpect,
 	                       imagSpect,amplitudeSpect);
 	 
 	    //Display the raw amplitude spectrum without
@@ -97,6 +98,6 @@ public class RemoveNoise {
 	    // transform.  It should compare favorably
 	    // with the original spatial surface.
 	    new ImgMod29(recoveredSpatialData,3,false,1);
-        HighGui.waitKey();
+        HighGui.waitKey();*/
 	}
 }
