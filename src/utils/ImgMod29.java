@@ -266,6 +266,8 @@ public class ImgMod29 extends Frame{
     BufferedImage im = new BufferedImage(dataWidth,dataHeight, BufferedImage.TYPE_3BYTE_BGR);
     Graphics g = im.getGraphics();
     surface.paint(g);
+    ImgFilter filter = new ImgFilter();
+    im = filter.removeRedBlue(im);
     File outputfile = new File("test.png");
 	try {
 		ImageIO.write(im, "png", outputfile);
