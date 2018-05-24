@@ -102,9 +102,12 @@ produced by the program.
 Tested using J2SE 5.0 and WinXP
 ************************************************/
 import static java.lang.Math.*;
+
+import org.opencv.core.Core;
 public class ImgMod31{
  
   public static void main(String[] args){
+	  System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     //Get input parameters to select the case to
     // be run and the displayType.  See ImgMod29
     // for a description of displayType.  Use
@@ -131,17 +134,18 @@ public class ImgMod31{
       System.out.println("Running DisplayType "
                  + displayType + " by default.");
     }//end else
-   
-    //Create the array of test data.
-    int rows = 41;
-    int cols = 41;
+
+    ImageToArray conv = new ImageToArray("bga.png");
     //Get a test surface in the space domain.
     double[][] spatialData =
-            getSpatialData(switchCase,rows,cols);
+            conv.toDoubleArray();
+    
+    int rows = spatialData.length;
+    int cols = spatialData[0].length;
          
     //Display the spatial data.  Don't display
     // the axes.
-    new ImgMod29(spatialData,3,false,
+    new ImgMod29(spatialData,1,false,
                                     displayType);
     //Perform the forward transform from the
     // space domain into the wave-number domain.
@@ -160,7 +164,7 @@ public class ImgMod31{
     //Display the raw amplitude spectrum without
     // shifting the origin first.  Display the
     // axes.
-    new ImgMod29(amplitudeSpect,3,true,
+    new ImgMod29(amplitudeSpect,1,true,
                                     displayType);
     //At this point, the wave-number spectrum is
     // not in a format that is good for viewing.
@@ -185,17 +189,17 @@ public class ImgMod31{
     // cases.
     double[][] shiftedRealSpect =
                  ImgMod30.shiftOrigin(realSpect);
-    new ImgMod29(shiftedRealSpect,3,true,
+    new ImgMod29(shiftedRealSpect,1,true,
                                     displayType);
    
     double[][] shiftedImagSpect =
                  ImgMod30.shiftOrigin(imagSpect);
-    new ImgMod29(shiftedImagSpect,3,true,
+    new ImgMod29(shiftedImagSpect,1,true,
                                     displayType);
    
     double[][] shiftedAmplitudeSpect =
             ImgMod30.shiftOrigin(amplitudeSpect);
-    new ImgMod29(shiftedAmplitudeSpect,3,true,
+    new ImgMod29(shiftedAmplitudeSpect,1,true,
                                     displayType);
       
     //Now test the inverse transform by
@@ -213,7 +217,7 @@ public class ImgMod31{
     //Display the output from the inverse
     // transform.  It should compare favorably
     // with the original spatial surface.
-    new ImgMod29(recoveredSpatialData,3,false,
+    new ImgMod29(recoveredSpatialData,1,false,
                                     displayType);
    
     //Use the following code to confirm correct

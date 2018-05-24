@@ -5,6 +5,7 @@
 	<classpathentry kind="lib" path="lib/jai/jai_codec.jar"/>
 	<classpathentry kind="lib" path="lib/jai/jai_core.jar"/>
 	<classpathentry kind="lib" path="lib/jai/mlibwrapper_jai.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/openCV"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/opencv"/>
+	<classpathentry kind="lib" path="lib/opencv-341.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

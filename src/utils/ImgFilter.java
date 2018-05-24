@@ -15,14 +15,24 @@ public class ImgFilter {
 		RGBImageFilter filter = new RGBImageFilter() {		
 
 			public final int filterRGB(int x, int y, int rgb) {
+				// filter green
 				int green = (rgb & 0x00ff00) >> 8;
-				if(green == 255) {
+				if(green > 254) {
 					rgb = (rgb & 0xff00ff00);
 				} else {
 					rgb = (rgb & 0xff000000) ;
 				}
 				return rgb ;
 			}
+				//filter red
+				/*int red = (rgb & 0x00ff0000) >> 16;
+				if(red > 50) {
+					rgb = (rgb & 0xffff0000);
+				} else {
+					rgb = (rgb & 0xff000000) ;
+				}
+				return rgb ;
+			}*/
 		};
 
 		return imageToBufferedImage(

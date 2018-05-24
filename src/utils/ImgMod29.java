@@ -268,7 +268,7 @@ public class ImgMod29 extends Frame{
     surface.paint(g);
     ImgFilter filter = new ImgFilter();
     im = filter.removeRedBlue(im);
-    File outputfile = new File("test.png");
+    File outputfile = new File("testR.png");
 	try {
 		ImageIO.write(im, "png", outputfile);
 	} catch(IOException e) {
